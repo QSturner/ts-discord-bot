@@ -1,1 +1,1 @@
-# ts-discord-bot-bot
+# ts-discord-bot
