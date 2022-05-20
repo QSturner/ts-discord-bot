@@ -1,6 +1,5 @@
 /* eslint-disable no-shadow */
 import { BaseCommandInteraction, Client, Interaction } from 'discord.js';
-import { Commands } from '../commands';
 
 export default (client: Client): void => {
     client.on('interactionCreate', async (interaction: Interaction) => {
@@ -11,13 +10,5 @@ export default (client: Client): void => {
 };
 
 const handleSlashCommand = async (client: Client, interaction: BaseCommandInteraction): Promise<void> => {
-    const slashCommand = Commands.find(c => c.name === interaction.commandName);
-    if (!slashCommand) {
-        interaction.followUp({ content: 'An error has occurred' });
-        return;
-    }
-
-    await interaction.deferReply();
-
-    slashCommand.run(client, interaction);
+    //* In progress
 };
