@@ -1,31 +1,24 @@
-import { Client, Intents } from 'discord.js';
-import { token } from '../config.json';
-import ready from './listeners/ready';
+import { Client } from 'discord.js';
+import { IntentOptions } from './config/IntentOptions';
+import { onInteraction } from './events/onInteraction';
+import { onReady } from './events/ready';
+import { validateEnv } from './utils/validateEnv';
 
-console.log('Bot is starting. . .');
+(async () => {
+	console.log('Bot is starting up...');
 
-const client = new Client({
-    intents: [Intents.FLAGS.GUILDS],
+	validateEnv();
+
+	const client = new Client({
+		intents: [IntentOptions],
+	});
+
+	client.on('ready', async () => await onReady(client));
+
+	client.on('interactionCreate', async (interaction) => {
+		await onInteraction(interaction);
+	});
+
+	await client.login(process.env.TOKEN as string);
 });
-
-ready(client);
-
-client.on('interactionCreate', async interaction => {
-    if (!interaction.isCommand()) return;
-
-    const { commandName } = interaction;
-
-    if (commandName === 'ping') {
-		await interaction.reply('Pong!');
-	}
-    else if (commandName === 'server') {
-		// eslint-disable-next-line quotes
-		await interaction.reply(`Server name: ${interaction.guild?.name}\nTotal members: ${interaction.guild?.memberCount}\nServer Creation Date: ${interaction.guild?.createdAt}`);
-	}
-    else if (commandName === 'user') {
-		await interaction.reply('User info.');
-	}
-});
-
-client.login(token);
 

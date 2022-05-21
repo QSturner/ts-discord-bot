@@ -2,10 +2,10 @@
   "name": "ts-discord-bot",
   "version": "1.0.0",
   "description": "A Discord bot created with TypeScript to help me get used to the language.",
-  "main": "buld/index.js",
+  "main": "prod/index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node -r dotenv/config ./prod/index.js",
     "lint": "eslint . --ext .ts"
   },
   "author": "Quentin Sturner",
@@ -13,8 +13,13 @@
   "dependencies": {
     "@discordjs/builders": "^0.13.0",
     "@discordjs/rest": "^0.4.1",
+    "@sentry/node": "^6.19.7",
     "discord-api-types": "^0.33.0",
-    "discord.js": "^13.7.0"
+    "discord.js": "^13.7.0",
+    "dotenv": "^16.0.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "winston": "^3.7.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.35",

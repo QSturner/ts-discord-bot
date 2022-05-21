@@ -1,33 +1,27 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "module": "commonjs",
-        "rootDir": "../",
-        "outDir": "./build/",
-        "strict": true,
-        "moduleResolution": "node",
-        "importHelpers": true,
-        "experimentalDecorators": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true,
-        "forceConsistentCasingInFileNames": true,
-        "removeComments": true,
-        "typeRoots": [
-            "node_modules/@types"
-        ],
-        "sourceMap": false,
-        "baseUrl": "./"
-    },
-    "files": [
-        "src/index.ts"
-    ],
-    "include": [
-        "./**/*.ts"
-    ],
-    "exclude": [
-        "node_modules",
-        "dist"
-    ]
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES6",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+
+    /* Modules */
+    "module": "commonjs",                                /* Specify what module code is generated. */
+    "rootDir": "./src",                                  /* Specify the root folder within your source files. */
+    "resolveJsonModule": true,                        /* Enable importing .json files */
+
+    /* JavaScript Support */
+    "allowJs": true,                                  /* Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files. */
+
+    /* Emit */
+     "outDir": "./prod",                                   /* Specify an output folder for all emitted files. */
+
+    /* Interop Constraints */
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+
+    /* Type Checking */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+
+    /* Completeness */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  }
 }
