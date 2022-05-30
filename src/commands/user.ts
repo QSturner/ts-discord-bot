@@ -6,6 +6,6 @@ export const user: CommandInt = {
         .setName('user')
         .setDescription('Replies with server info!'),
     run: async (interaction) => {
-        await interaction.reply(`Your ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
+        await interaction.reply(`You are ${interaction.user.tag}!\nYour id: ${interaction.user.id}`);
     },
 };

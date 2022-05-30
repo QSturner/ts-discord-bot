@@ -20,5 +20,5 @@ import { validateEnv } from './utils/validateEnv';
 	});
 
 	await client.login(process.env.TOKEN as string);
-});
+})();
 
